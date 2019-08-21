@@ -13,7 +13,7 @@ export class ValidatorUnique {
         else
           reject(null);
       }, 2000);
-    }
+    });
  
   }
 }
