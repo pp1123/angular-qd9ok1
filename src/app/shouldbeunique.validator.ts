@@ -6,7 +6,7 @@ import * as resolve from 'fs';
 
 export class ValidatorUnique {
   static shouldbeunique(control: AbstractControl): Promise<ValidationErrors | null> {
-    return new Promise((resolve, reject))=> {
+    return new Promise((resolve, reject)=> {
       setTimeout(() => {
         if (control.value === "Piyush")
            resolve({ shouldbeunique: true });

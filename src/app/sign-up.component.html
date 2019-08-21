@@ -1,6 +1,6 @@
 <form [formGroup]="form">
-    <div class="form-group">
-        <label for="username">Username</label>
+	<div class="form-group">
+		<label for="username">Username</label>
         <input 
             formControlName="username"
             id="username" 
@@ -17,10 +17,16 @@
       <div *ngIf="username.errors.cannotcontainspace" >
         Username cannot contain space
       </div>
-          <div *ngIf="username.errors.pattern" >
+          <!-- <div *ngIf="username.errors.pattern" >
        Should contain only {{username.errors.pattern.requiredPattern}} these characters
+      </div> -->
+
+
+          <div *ngIf="username.errors.shouldbeunique" >
+      Username already taken
       </div>
     </div>
+    
     <div class="form-group">
         <label for="password">Password</label>
         <input 
