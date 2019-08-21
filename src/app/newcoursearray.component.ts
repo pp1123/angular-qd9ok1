@@ -16,6 +16,11 @@ export class newcoursearray {
      (this.form.get('topics')as FormArray).push( new FormControl(topic.value)) ; 
   }
 
+  // addTopic ()
+  // {
+  //   console.log("Hey")
+  // }
+
   removeTopic (topic:FormControl)
   {
     let index= this.topics.controls.indexOf(topic)
