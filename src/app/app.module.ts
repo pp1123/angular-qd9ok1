@@ -7,10 +7,11 @@ import { HelloComponent } from './hello.component';
 import { ChildParentClass } from './child.component';
 import { SignupFormComponent } from './sign-up.component';
 import { newcoursearray } from './newcoursearray.component';
+import { ChangePasswordComponent } from './changepassword.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
-  declarations: [AppComponent, HelloComponent, ChildParentClass, SignupFormComponent, newcoursearray],
+  declarations: [AppComponent, HelloComponent, ChildParentClass, SignupFormComponent, newcoursearray,ChangePasswordComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
