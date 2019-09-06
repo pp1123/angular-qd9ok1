@@ -8,6 +8,7 @@ import { ChildParentClass } from './child.component';
 import { SignupFormComponent } from './sign-up.component';
 import { newcoursearray } from './newcoursearray.component';
 import { ChangePasswordComponent } from './changepassword.component';
+    from './posts.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
