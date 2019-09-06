@@ -11,6 +11,9 @@ export class posts
  posts:any [];
 
   constructor(http:Http){
-    posts= http.get('https://jsonplaceholder.typicode.com/');
+    http.get('https://jsonplaceholder.typicode.com/')
+    .subscribe(response=> {
+     this.posts=response.json
+    })
   }
 }
