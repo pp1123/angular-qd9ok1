@@ -9,9 +9,10 @@ import {Http} from '@angular/http';
 export class posts 
 {
  posts:any [];
+ private url ='https://jsonplaceholder.typicode.com/';
 
   constructor(private http:Http){
-    http.get('https://jsonplaceholder.typicode.com/')
+    http.get(this.url)
     .subscribe(response=> {
      this.posts=response.json();
     });
