@@ -10,7 +10,7 @@ export class posts implements OnInit
 {
  posts:any[];
  private url ='https://jsonplaceholder.typicode.com/posts';
-
+ private post;
   constructor(private service:PostsService){
        
   }
@@ -35,5 +35,23 @@ export class posts implements OnInit
        this.posts.splice(0,0,post);
      })
    }
+  
+  updatepost(post)
+  {
+    this.service.updatepost(post).
+    subscribe(response =>
+    {
+      console.log(response.json());
+    })
+  }
 
+  deletepost(post)
+  {
+    this.service.deletepost(post.id).
+    subscribe(response =>
+    {
+      let index =this.posts.indexOf(post);
+      this.posts.splice(index,1);
+    })
+  }
 }
