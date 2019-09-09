@@ -11,6 +11,7 @@ export class posts implements OnInit
  posts:any[];
  private url ='https://jsonplaceholder.typicode.com/posts';
  private post;
+ private error;
   constructor(private service:PostsService){
        
   }
@@ -33,6 +34,9 @@ export class posts implements OnInit
      subscribe(response =>{
        posts['id']=response.json().id;
        this.posts.splice(0,0,post);
+     },error =>{
+       error='Unexpect'
+       console.log
      })
    }
   
