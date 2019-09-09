@@ -10,10 +10,10 @@ export class posts
 {
  posts:any [];
 
-  constructor(http:Http){
+  constructor(private http:Http){
     http.get('https://jsonplaceholder.typicode.com/')
     .subscribe(response=> {
-     this.posts=response.json
-    })
+     this.posts=response.json();
+    });
   }
 }
