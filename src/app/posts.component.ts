@@ -35,7 +35,7 @@ export class posts implements OnInit
        posts['id']=response.json().id;
        this.posts.splice(0,0,post);
      },error =>{
-       error='Unexpect'
+       error='Unexpected error'
        console.log
      })
    }
