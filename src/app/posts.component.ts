@@ -56,13 +56,14 @@ export class posts implements OnInit
 
   deletepost(post)
   {
-    this.service.deletepost(post.id).
+    this.service.deletepost(1001).
     subscribe(response =>
     {
       let index =this.posts.indexOf(post);
       this.posts.splice(index,1);
-    },error=> {
-      this.error=0;
+    },(error:Response) => {
+       if (error.status===404)
+       this.error=404;
     })
   }
 }

@@ -5,6 +5,11 @@
   <span class="pficon pficon-error-circle-o"></span>
    <strong>Excepted error occured</strong>.
 </div></div>
+<div *ngIf="error==404" >
+  <div class="toast-pf alert alert-danger">
+  <span class="pficon pficon-error-circle-o"></span>
+   <strong>Already deleted</strong>.
+</div></div>
 
 
 <ul class="list-group">
