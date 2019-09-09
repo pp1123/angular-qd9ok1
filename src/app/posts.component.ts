@@ -11,11 +11,11 @@ export class posts implements OnInit
  posts:any[];
  private url ='https://jsonplaceholder.typicode.com/posts';
  private post;
- private error;
+  error:any;
   constructor(private service:PostsService){
-       
+      
   }
-   
+  
    ngOnInit()
    {
        this.service.getposts()
@@ -35,9 +35,10 @@ export class posts implements OnInit
        posts['id']=response.json().id;
        this.posts.splice(0,0,post);
      },error =>{
-       error='Unexpected error'
-       console.log
-     })
+      
+      alert("unexpected error occured");
+      console.log('error occured');
+     });
    }
   
   updatepost(post)
