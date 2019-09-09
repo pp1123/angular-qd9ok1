@@ -5,7 +5,7 @@
   })
 
   export class PostsService {
-   private url='https://aajsonplaceholder.typicode.com/posts'
+   private url='https://jsonplaceholder.typicode.com/posts'
 
     constructor(private http:Http){
     }

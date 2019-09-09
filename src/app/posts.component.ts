@@ -21,7 +21,11 @@ export class posts implements OnInit
        this.service.getposts()
     .subscribe(response=> {
      this.posts=response.json();
-   });
+   },error =>{
+      this.error=0;
+      // alert("unexpected error occured");
+      // console.log('error occured');
+     });
    }
 
 
@@ -34,10 +38,8 @@ export class posts implements OnInit
      subscribe(response =>{
        posts['id']=response.json().id;
        this.posts.splice(0,0,post);
-     },error =>{
-      
-      alert("unexpected error occured");
-      console.log('error occured');
+     },error=>{
+       this.error=0;
      });
    }
   
@@ -47,6 +49,8 @@ export class posts implements OnInit
     subscribe(response =>
     {
       console.log(response.json());
+    },error=>{
+      this.error =0;
     })
   }
 
@@ -57,6 +61,8 @@ export class posts implements OnInit
     {
       let index =this.posts.indexOf(post);
       this.posts.splice(index,1);
+    },error=> {
+      this.error=0;
     })
   }
 }
