@@ -27,7 +27,13 @@ export class posts implements OnInit
 
    createPost(input:HTMLInputElement)
    {
-     let post =
+     let post ={title:input.value};
+     input.value;
+     this.service.createposts(post).
+     subscribe(response =>{
+       posts['id']=response.json().id;
+       this.posts.splice(0,0,post);
+     })
    }
 
 }
