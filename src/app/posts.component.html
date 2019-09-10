@@ -5,10 +5,10 @@
   <span class="pficon pficon-error-circle-o"></span>
    <strong>Excepted error occured</strong>.
 </div></div>
-<div *ngIf="error==404" >
+<div *ngIf="error==400" >
   <div class="toast-pf alert alert-danger">
   <span class="pficon pficon-error-circle-o"></span>
-   <strong>Already deleted</strong>.
+   <strong>{{originalerror}}</strong>.
 </div></div>
 
 

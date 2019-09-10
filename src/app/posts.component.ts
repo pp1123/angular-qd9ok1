@@ -44,6 +44,7 @@ export class posts implements OnInit
      },(error:AppError)=>{
        if (error instanceof badinput)
         { 
+          this.error =400;
           this.originalerror =error.originalerror; 
         }
         else 
