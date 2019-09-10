@@ -2,7 +2,8 @@
   import {Http} from '@angular/http';
   import 'rxjs/add/operator/catch';
   import {Observable} from 'rxjs/Observable';
-  import    {AppError}      from './common/app-error';
+  import    {AppError}  from './common/app-error';
+    import    {NotFound}   from './common/not-found';
   @Injectable ({
     providedIn :'root'
   })
@@ -34,8 +35,8 @@
       .catch(
         (error:Response)=>{
           if (error.status===404)
-          return Observable.throw(new NotFound())
-         return Observable.throw(new AppError());
+          return Observable.throw(new NotFound());
+         return Observable.throw(new AppError(error));
         }
       );
     }

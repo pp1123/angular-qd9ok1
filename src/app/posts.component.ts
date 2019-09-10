@@ -61,7 +61,7 @@ export class posts implements OnInit
     {
       let index =this.posts.indexOf(post);
       this.posts.splice(index,1);
-    },(error:Response) => {
+    },(error:AppError) => {
        if (error.status===404)
        this.error=404;
     })
