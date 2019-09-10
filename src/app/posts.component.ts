@@ -2,6 +2,7 @@ import  {Component,OnInit} from '@angular/core';
 import {PostsService} from './posts.service';
 import    {AppError}  from './common/app-error';
 import    {notfound}  from './common/not-found';
+import    {badinput}  from './common/bad-input';
 @Component ({
   selector:'posts',
  templateUrl:'./posts.component.html'
@@ -13,6 +14,7 @@ export class posts implements OnInit
  private url ='https://jsonplaceholder.typicode.com/posts';
  private post;
   error:any;
+  originalerror:any;
   constructor(private service:PostsService){
       
   }
@@ -39,8 +41,16 @@ export class posts implements OnInit
      subscribe(response =>{
        posts['id']=response.json().id;
        this.posts.splice(0,0,post);
-     },error=>{
-       this.error=0;
+     },(error:AppError)=>{
+       if (error instanceof badinput)
+        { 
+          this.originalerror =error.originalerror; 
+        }
+        else 
+        {
+          alert('an unexpected error occured');
+          console.log('error');
+        }
      });
    }
   

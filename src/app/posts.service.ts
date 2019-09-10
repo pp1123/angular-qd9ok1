@@ -3,7 +3,8 @@
   import 'rxjs/add/operator/catch';
   import {Observable} from 'rxjs/Observable';
   import    {AppError}  from './common/app-error';
-    import    {NotFound}   from './common/not-found';
+  import    {notfound}   from './common/not-found';
+import    {badinput}   from './common/bad-input';
   @Injectable ({
     providedIn :'root'
   })
@@ -21,7 +22,12 @@
 
     createposts(post)
     {
-      return this.http.post(this.url,JSON.stringify(post));
+      return this.http.post(this.url,JSON.stringify(post))
+      .catch((error:Response)=>{
+        if (error.status===400)
+        return Observable.throw(new badinput(error.json()));
+        return Observable.throw(new AppError(error.json()));
+      });
     }   
     
     updatepost(post)
@@ -35,7 +41,7 @@
       .catch(
         (error:Response)=>{
           if (error.status===404)
-          return Observable.throw(new NotFound());
+          return Observable.throw(new notfound());
          return Observable.throw(new AppError(error));
         }
       );
