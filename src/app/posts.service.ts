@@ -1,5 +1,8 @@
   import {Injectable}  from '@angular/core';
   import {Http} from '@angular/http';
+  import 'rxjs/add/operator/catch';
+  import {Observable} from 'rxjs/Observable';
+  import    {AppError}      from './common/app-error';
   @Injectable ({
     providedIn :'root'
   })
@@ -27,6 +30,13 @@
 
     deletepost(id)
     {
-      return this.http.delete(this.url + '/'+id);
+      return this.http.delete(this.url + '/'+id)
+      .catch(
+        (error:Response)=>{
+          if (error.status===404)
+          return Observable.throw(new NotFound())
+         return Observable.throw(new AppError());
+        }
+      );
     }
   }
