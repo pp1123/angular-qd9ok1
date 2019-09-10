@@ -23,11 +23,7 @@ import    {badinput}   from './common/bad-input';
     createposts(post)
     {
       return this.http.post(this.url,JSON.stringify(post))
-      .catch((error:Response)=>{
-        if (error.status===400)
-        return Observable.throw(new badinput(error.json()));
-        return Observable.throw(new AppError(error.json()));
-      });
+      .catch(this.handleError);
     }   
     
     updatepost(post)
