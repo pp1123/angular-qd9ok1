@@ -24,11 +24,7 @@ export class posts implements OnInit
        this.service.getposts()
     .subscribe(response=> {
      this.posts=response.json();
-   },error =>{
-      this.error=0;
-      // alert("unexpected error occured");
-      // console.log('error occured');
-     });
+   });
    }
 
 
@@ -49,8 +45,7 @@ export class posts implements OnInit
         }
         else 
         {
-          alert('an unexpected error occured');
-          console.log('error');
+          throw error;
         }
      });
    }
@@ -61,9 +56,7 @@ export class posts implements OnInit
     subscribe(response =>
     {
       console.log(response.json());
-    },error=>{
-      this.error =0;
-    })
+    });
   }
 
   deletepost(post)
@@ -76,6 +69,7 @@ export class posts implements OnInit
     },(error:AppError) => {
        if (error instanceof notfound)
        alert ('this post has already been deleted ');
+       else throw error;
     })
   }
 }

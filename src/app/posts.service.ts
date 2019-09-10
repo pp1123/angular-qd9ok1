@@ -38,12 +38,19 @@ import    {badinput}   from './common/bad-input';
     deletepost(id)
     {
       return this.http.delete(this.url + '/'+id)
-      .catch(
-        (error:Response)=>{
-          if (error.status===404)
-          return Observable.throw(new notfound());
-         return Observable.throw(new AppError(error));
-        }
-      );
+      .catch(this.handleError);
+      
     }
+
+   private handleError(error:Response)
+   {
+     if (error.status===400)
+     return Observable.throw(new badinput());
+
+     else if (error.status===404)
+     return Observable.throw(new notfound() );
+     else
+     return Observable.throw(new AppError());
+   }
+
   }
