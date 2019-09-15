@@ -32,6 +32,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
    },
    {
      path:'posts',component:posts
+   },
+   {
+     path:"**",component:NotFoundComponent
    }
   ])],
   declarations: [AppComponent, HelloComponent, ChildParentClass, SignupFormComponent, newcoursearray, ChangePasswordComponent, posts, NavbarComponent, HomeComponent, GithubFollowersComponent, GithubProfileComponent, NotFoundComponent],
