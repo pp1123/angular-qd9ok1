@@ -1,6 +1,7 @@
 import { NgModule ,ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
  import {HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -18,7 +19,21 @@ import { GithubProfileComponent } from './github-profile/github-profile.componen
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule,HttpModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule,HttpModule,
+  RouterModule.forRoot([
+   {
+       path:"",component:HomeComponent
+   } ,
+   {
+     path:"followers/:username",component:GithubProfileComponent
+   },
+   {
+     path:'followers',component:GithubFollowersComponent
+   },
+   {
+     path:'posts',component:posts
+   }
+  ])],
   declarations: [AppComponent, HelloComponent, ChildParentClass, SignupFormComponent, newcoursearray, ChangePasswordComponent, posts, NavbarComponent, HomeComponent, GithubFollowersComponent, GithubProfileComponent, NotFoundComponent],
   bootstrap: [AppComponent],
   providers:[
