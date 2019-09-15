@@ -11,10 +11,15 @@ import { ChangePasswordComponent } from './changepassword.component';
 import { posts } from './posts.component';
 import  {PostsService} from './posts.service';
 import   {AppErrorHandler} from './common/app-error-handler';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule,HttpModule],
-  declarations: [AppComponent, HelloComponent, ChildParentClass, SignupFormComponent, newcoursearray, ChangePasswordComponent, posts],
+  declarations: [AppComponent, HelloComponent, ChildParentClass, SignupFormComponent, newcoursearray, ChangePasswordComponent, posts, NavbarComponent, HomeComponent, GithubFollowersComponent, GithubProfileComponent, NotFoundComponent],
   bootstrap: [AppComponent],
   providers:[
     PostsService,
