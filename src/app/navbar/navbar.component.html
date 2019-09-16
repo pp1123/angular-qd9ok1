@@ -1,4 +1,17 @@
-<nav class="navbar navbar-default">
+<mat-toolbar color="primary" class="mat-elevation-z3">
+	<nav>
+		<a mat-button routerLink="/first">Link #1</a>
+		<a mat-button routerLink="/second">Link #2</a>
+		<a mat-button routerLink="/third"><mat-icon>settings</mat-icon> Link #3</a>
+    <a mat-icon-button routerLink="search" matTooltip="Search"><mat-icon>search</mat-icon></a>
+	</nav>
+</mat-toolbar>
+<div class="app-content">
+	<router-outlet></router-outlet>
+</div>
+
+
+<!-- <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -7,4 +20,4 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
