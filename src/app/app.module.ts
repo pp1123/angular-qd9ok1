@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
  import {HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+// import { HelloComponent } from './hello.component';
 import { ChildParentClass } from './child.component';
 import { SignupFormComponent } from './sign-up.component';
 
@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { GithubFollowersComponent } from'./github-followers/github-followers.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+
+import { HelloComponent } from './hello/hello.component';
 import {
   MatButtonModule,
   MatFormFieldModule,
